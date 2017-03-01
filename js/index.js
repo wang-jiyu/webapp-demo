@@ -134,8 +134,8 @@ angular.module('app')
 	angular.module('app')
 	.controller('favoriteCtrl', ['$http','$scope', function($http,$scope){
 		$http.get('data/myFavorite.json')
-		.success(function(resp){
-			$scope.list = resp;
+		.then(function(resp){
+			$scope.list = resp.data;
 		});
 	}]);
 	'use strict';
