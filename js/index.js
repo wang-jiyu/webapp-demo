@@ -8,7 +8,7 @@
 	angular.module('app')
 	.value('dict',{}) //创建全局变量，没有动态对象，只有值
 	.run(['dict','$http',function (dict,$http) {		//模块初始化操作，引入dict全局变量
-		$http.get('data/city.json').then(function(resp){
+		$http.get('webapp-demo/data/city.json').then(function(resp){
 			dict.city=resp.data;
 		}, function(resp){
 			console.log(resp.data);
@@ -122,7 +122,7 @@
 	}]);
 angular.module('app')
 .controller('companyCtrl',['$http','$state','$scope',function($http,$state,$scope){
-	$http.get('data/company.json?id='+$state.params.id)
+	$http.get('webapp-demo/data/company.json?id='+$state.params.id)
 	.then(function(resp){
 		$scope.company=resp.data;
 	},function(resp){
@@ -142,7 +142,7 @@ angular.module('app')
 	angular.module('app')
 	.controller('loginCtrl', ['cache','$http','$scope','$state', function(cache,$http,$scope,$state){
 		$scope.submit = function(){
-			$http.post('data/login.json',$scope.user)
+			$http.post('webapp-demo/data/login.json',$scope.user)
 			.success(function(resp){
 				cache.put('id',resp.id);
 				cache.put('name',resp.name);
@@ -201,7 +201,7 @@ angular.module('app')
 		$scope.message = $scope.isLogin?'投个简历':'去登录';
 		function getPosition(){
 			var def=$q.defer(); //声明延迟加载对象
-			$http.get('/data/position.json?id='+$state.params.id)
+			$http.get('webapp-demo/data/position.json?id='+$state.params.id)
 			.then(function(resp){ //成功回调
 				// console.log(resp.data)
 				$scope.position = resp.data;
@@ -217,7 +217,7 @@ angular.module('app')
 		}
 
 		function getCompany(id){
-			$http.get('data/company.json?id='+id).then(function(resp){
+			$http.get('webapp-demo/data/company.json?id='+id).then(function(resp){
 				// console.log(resp);
 				$scope.company = resp.data;
 			})
@@ -256,7 +256,7 @@ angular.module('app')
 			id:'fail',
 			name:'不合适'
 		}];
-		$http.get('data/myPost.json')
+		$http.get('webapp-demo/data/myPost.json')
 		.success(function(resp){
 			$scope.positionList=resp;
 		});
@@ -280,7 +280,7 @@ angular.module('app')
 	angular.module('app')
 	.controller('registerCtrl', ['$interval','$http','$scope','$state', function($interval,$http,$scope,$state){
 		$scope.submit = function(){
-			$http.post('data/regist.json',$scope.user)
+			$http.post('webapp-demo/data/regist.json',$scope.user)
 			.success(function(resp){
 				$state.go('login');
 			});
@@ -313,7 +313,7 @@ angular.module('app')
 	.controller('searchCtrl', ['dict','$http','$scope', function(dict,$http,$scope){
 		$scope.name = '';
 		$scope.search = function(){
-			$http.get('data/positionList.json?name=' + $scope.name)
+			$http.get('webapp-demo/data/positionList.json?name=' + $scope.name)
 			.then(function(resp){
 				$scope.positionList=resp.data;
 			},function(resp){
