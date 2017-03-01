@@ -154,7 +154,7 @@ angular.module('app')
 	'use strict';
 	angular.module('app')
 	.controller('mainCtrl',['$http','$scope',function($http,$scope){
-		$http.get('/data/positionList.json')
+		$http.get('webapp-demo/data/positionList.json')
 		.then(function(resp){	//成功回调
 			// console.log(resp);
 			$scope.list=resp.data;
