@@ -217,7 +217,7 @@ angular.module('app')
 		}
 
 		function getCompany(id){
-			$http.get('webapp-demo/data/company.json?id='+id).then(function(resp){
+			$http.get('data/company.json?id='+id).then(function(resp){
 				// console.log(resp);
 				$scope.company = resp.data;
 			})
