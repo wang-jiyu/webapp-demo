@@ -1,0 +1,15 @@
+<div class="me ta-c">
+	<img class="d-b" ng-src="{{image}}" alt="">
+	<div ng-if="name">
+		<div class="name" ng-bind="name">北南先生</div>
+		<div class="btns">
+			<button ui-sref="post">投递</button>
+			<button ui-sref="favorite">收藏</button>
+			<button class="logout" ng-click="logout();">退出登录</button>
+		</div>
+	</div>
+	<div ng-hide="name">
+		<button class="login-btn" ui-sref="login">去登录</button>
+	</div>
+</div>
+<div app-foot></div>

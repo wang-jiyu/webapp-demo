@@ -1,0 +1,19 @@
+<div class="register">
+	<form class="d-b ta-c" name="form">  <!-- 引用校验插件在form中必须写name="form(随意名字)" -->
+ 		<div class="form-line ta-l p-r">
+			<span class="icon account va-t d-ib"></span>
+			<input name="phone" ng-model="user.phone" validator="required,phone" class="d-ib" type="text" placeholder="请输入手机号"> <!-- 校验表单写法validator="phone(规则名字)" 校验时需要绑定数据模型ng-model="user.phone"  把数据都放到user对象里面，到时候提交后台只需要把user对象提交就行了 -->
+		</div>
+		<div class="form-line ta-l p-r">
+			<span class="icon lock va-t d-ib"></span>
+			<input name="passowrd" ng-model="user.password" validator="required,password" class="d-ib" type="password" placeholder="设置6位以上的密码">
+		</div>
+		<div class="message-warp ta-l p-r">
+			<input name="code" validator="required" ng-model="user.code" class="message-box"  placeholder="短信验证码" type="text">
+			<span class="icon message f-r {{time?'disabled':''}}" ng-click="time?1==1:send();" ng-bind="time?time:'发送短信'"></span>
+			<div class="clear"></div>
+		</div>
+		<button class="login-btn" ui-sref="login">登录</button>
+		<button class="register-btn" validation-submit="form" ng-click="submit();">注册</button> <!-- 校验完成才能点击按钮 validation-submit="form" 表单name起的名字-->
+	</form>
+</div>
