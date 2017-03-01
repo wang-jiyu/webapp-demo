@@ -256,9 +256,9 @@ angular.module('app')
 			id:'fail',
 			name:'不合适'
 		}];
-		$http.get('data/myPost.json')
-		.success(function(resp){
-			$scope.positionList=resp;
+		$http.get('webapp-demo/data/myPost.json')
+		.then(function(resp){
+			$scope.positionList=resp.data;
 		});
 		$scope.filterObj = {}; //用来过滤数据 
 		$scope.tClick = function(id,name){
