@@ -154,7 +154,7 @@ angular.module('app')
 	'use strict';
 	angular.module('app')
 	.controller('mainCtrl',['$http','$scope',function($http,$scope){
-		$http.get('/data/positionList.json')
+		$http.get('/webapp-demo/data/positionList.json')
 		.then(function(resp){	//成功回调
 			// console.log(resp);
 			$scope.list=resp.data;
@@ -201,7 +201,7 @@ angular.module('app')
 		$scope.message = $scope.isLogin?'投个简历':'去登录';
 		function getPosition(){
 			var def=$q.defer(); //声明延迟加载对象
-			$http.get('/data/position.json?id='+$state.params.id)
+			$http.get('/webapp-demo/data/position.json?id='+$state.params.id)
 			.then(function(resp){ //成功回调
 				// console.log(resp.data)
 				$scope.position = resp.data;
