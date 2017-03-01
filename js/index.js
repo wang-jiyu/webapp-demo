@@ -313,7 +313,7 @@ angular.module('app')
 	.controller('searchCtrl', ['dict','$http','$scope', function(dict,$http,$scope){
 		$scope.name = '';
 		$scope.search = function(){
-			$http.get('webapp-demo/data/positionList.json?name=' + $scope.name)
+			$http.get('data/positionList.json?name=' + $scope.name)
 			.then(function(resp){
 				$scope.positionList=resp.data;
 			},function(resp){
