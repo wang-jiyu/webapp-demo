@@ -201,7 +201,7 @@ angular.module('app')
 		$scope.message = $scope.isLogin?'投个简历':'去登录';
 		function getPosition(){
 			var def=$q.defer(); //声明延迟加载对象
-			$http.get('/data/position.json?id='+$state.params.id)
+			$http.get('/webapp-demo/data/position.json?id='+$state.params.id)
 			.then(function(resp){ //成功回调
 				// console.log(resp.data)
 				$scope.position = resp.data;
@@ -217,7 +217,7 @@ angular.module('app')
 		}
 
 		function getCompany(id){
-			$http.get('data/company.json?id='+id).then(function(resp){
+			$http.get('webapp-demo/data/company.json?id='+id).then(function(resp){
 				// console.log(resp);
 				$scope.company = resp.data;
 			})
